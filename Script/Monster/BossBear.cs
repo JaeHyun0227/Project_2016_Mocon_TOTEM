@@ -1,0 +1,127 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class BossBear : MonoBehaviour {
+
+    Animator Animator;
+    public SPEEDUP SPEEDUP;
+    public GameObject Pos1, Pos2, Pos3, Pos4, Pos5, Pos6, Pos7,Pos8,Pos9;
+    public GameObject Monster;
+    public Health HP;
+    public int Cnt;
+    public float speed;
+    // Use this for initialization
+    void Start()
+    {
+        Cnt = 0;
+        Animator = GetComponent<Animator>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        speed = SPEEDUP.speed;
+
+        float step = speed * Time.deltaTime;
+
+
+
+        if (Cnt == 0)
+        {
+            Move(Pos1.transform.position, step);
+            if (Pos1.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 1)
+        {
+            Animator.SetInteger("Cnt", 1);
+
+            Move(Pos2.transform.position, step);
+            if (Pos2.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 2)
+        {
+            Animator.SetInteger("Cnt", 2);
+
+            Move(Pos3.transform.position, step);
+            if (Pos3.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 3)
+        {
+            Animator.SetInteger("Cnt", 3);
+
+            Move(Pos4.transform.position, step);
+            if (Pos4.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 4)
+        {
+            Animator.SetInteger("Cnt", 4);
+
+            Move(Pos5.transform.position, step);
+            if (Pos5.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 5)
+        {
+            Animator.SetInteger("Cnt", 5);
+
+            Move(Pos6.transform.position, step);
+            if (Pos6.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 6)
+        {
+            Animator.SetInteger("Cnt", 6);
+
+            Move(Pos7.transform.position, step);
+            if (Pos7.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 7)
+        {
+            Animator.SetInteger("Cnt", 7);
+
+            Move(Pos8.transform.position, step);
+            if (Pos8.transform.position == transform.position)
+            {
+                Cnt++;
+            }
+        }
+        if (Cnt == 8)
+        {
+            Animator.SetInteger("Cnt", 8);
+
+            Move(Pos9.transform.position, step);
+            if (Pos9.transform.position == transform.position)
+            {
+                HP.HP -= 5;
+                Destroy(Monster);
+            }
+        }
+    }
+
+    void Move(Vector3 target, float step)
+    {
+
+        transform.position = Vector3.MoveTowards(transform.position, target, step);
+    }
+
+}
